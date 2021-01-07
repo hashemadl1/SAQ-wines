@@ -1,0 +1,11 @@
+image:
+    css: 'a.MagicZoom'
+    type: Attribute
+    attribute: href
+
+prd_attributs:
+    css: ul.list-attributs
+    type: HTML
+
+        
+
