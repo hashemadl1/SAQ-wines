@@ -26,6 +26,7 @@ headers = {
     }
 
 SAQ_START_LINK = "https://www.saq.com/en/products/spirit"
+#SAQ_START_LINK = "https://www.saq.com/en/products/wine"
 
 def get_info_new(mystr):
     info_dict = {}
@@ -101,6 +102,7 @@ def get_all_links (html):
 def save_to_file(dataset, visited_url):
     df = pd.DataFrame(data=dataset)
     df.to_csv('our_spirit_dataset.csv', encoding='utf-8-sig',index= False)
+    #df.to_csv('our_wine_dataset.csv', encoding='utf-8-sig',index= False)
     with open('visited_urls', 'wb') as fp:
         pickle.dump(visited_url, fp)
 
@@ -134,6 +136,7 @@ page_info = get_number_of_pages()
 
 for pid in range(page_info['nPages']):
     page_url = 'https://www.saq.com/en/products/spirit?p={}'.format(pid+1)
+    #page_url = 'https://www.saq.com/en/products/wine?p={}'.format(pid+1)
     r = requests.get(page_url)
     if (r.status_code == 200)  and (r.text):
         html = r.text
